@@ -1,0 +1,748 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from technext.github.io/skydash/pages/samples/register.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 16 May 2022 05:23:07 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Skydash Admin</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="{% static 'vendors/feather/feather.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/ti-icons/css/themify-icons.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/css/vendor.bundle.base.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/mdi/css/materialdesignicons.min.css' %}">
+  <!-- endinject -->
+  <!-- Plugin css for this page -->
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="{% static 'images/small-logo.png' %}" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+
+
+  <style>
+
+    h3{
+      color:#000080;
+      margin-left: 16px;
+
+
+    }
+
+    .progress-bar li.active::after {
+      background-color:#005fc1;
+
+    }
+
+    .progress-bar li:first-child:after {
+      display: none;
+
+    }
+
+    .progress-bar li.active::before {
+      color: white;
+      border: 1px solid black;
+      background-color: #005fc1;
+    }
+
+    .progress-bar li.active {
+      color: #005fc1;
+    }
+
+    .d-none {
+      display: none;
+    }
+
+    .main {
+      display: none;
+      padding: 40px;
+
+    }
+
+    .active {
+      display: block;
+    }
+
+
+    .progress-bar li::before {
+      content: counter(container);
+      line-height: 25px;
+      text-align: center;
+      position: absolute;
+      height: 25px;
+      width: 25px;
+      border: 1px solid #4f6581;
+      border-radius: 50%;
+      left: -40px;
+      top: -5px;
+      z-index: 10;
+      background-color: #ced4da;
+    }
+
+    .progress-bar li::after {
+      content: '';
+      position: absolute;
+      height: 90px;
+      width: 2px;
+      {% comment %} background-color: #4f6581; {% endcomment %}
+      z-index: 1;
+      background-color: #70767c;
+      left: -27px;
+      top: -70px;
+    }
+
+    .container {
+      min-height: 48vh;
+      width: 25%;
+      justify-content: center;
+      align-items: center;
+      background-color: #eee;
+    }
+
+    .container .card .left-side {
+      width: 102%;
+      background-color: #304767;
+      height: 100%;
+      border-top-left-radius: -33px;
+      border-bottom-left-radius: -2px;
+      padding: 151px 105px;
+      margin-left: 50px;
+      margin-top: 50px;
+    }
+
+    .auth .auth-form-light {
+      background: #ffffff;
+      margin-left: -200px;
+    margin-right: 77px;
+    width:438px;
+  }
+
+    .steps-content {
+      margin-top: 30px;
+      color: #fff;
+    }
+
+    .progress-bar {
+      list-style: none;
+      /*color:#fff;*/
+      margin-top: -42px;
+      font-size: 16px;
+      font-weight: 700;
+      counter-reset: container 0;
+      background-color: transparent;
+      width:230px;
+      border: 1px solid;
+      padding: 10px;
+      box-shadow: 5px 10px #D8D7D7;
+      border-radius: 15px;
+    }
+
+    .progress-bar li {
+      position: relative;
+      margin-left: 40px;
+      margin-top: 50px;
+      counter-increment: container 1;
+      color: #70767c;
+    }
+
+
+
+    .button_space button:nth-child(1) {
+      background-color: #bbbbbb;
+
+    }
+
+
+    .container .card .form {
+      width: 100%;
+      height: 100%;
+      display: flex;
+    }
+    .venus {
+      margin-bottom:100px;
+      margin-top: 100px;
+      margin-left: 300px;
+    }
+
+    .mars {
+      margin-bottom:100px;
+      margin-top: 45px;
+      margin-left: 300px;
+    }
+
+    .pt-5, .py-5 {
+
+      margin-right: 5rem !important;
+}
+    
+
+
+
+.eyetoggle {
+  margin-left: -2px;
+  margin-top: -35px;
+}
+
+.eyetoggle1 {
+  margin-left: -2px;
+  margin-top: -35px;
+}
+.formerror {
+  color: red;
+}
+
+.formerror1 {
+  color: red;
+}
+
+
+    
+  </style>
+</head>
+
+
+<body>
+{% if pass_pass %}
+  <div class="container-scroller">
+    <div class="container-fluid page-body-wrapper full-page-wrapper">
+      <div class="content-wrapper d-flex align-items-center auth px-0"> 
+        <div class="row w-100 mx-0">
+
+          <div class="venus">
+
+
+            <div class="left-side">
+  
+              <div class="steps-content">
+                <h3>Step<span class="step-number">3</span></h3>
+  
+                <p class="step-number-content d-none"></p>
+                <p class="step-number-content d-none"></p>
+                <p class="step-number-content d-none"></p>
+              </div>
+              <ul class="progress-bar">
+                <li class="active">SignUp</li>
+                <li class = "active">Verify OTP</li>
+                <li class = "active">Create Password</li>
+  
+  
+  
+              </ul>
+  
+  
+            </div>
+          </div>
+  
+          <div class="top">
+  
+  
+            <div class="main">
+              <div class="buttons button_space">
+  
+                <button class="next_button">Next Step</button>
+              </div>
+            </div>
+  
+  
+          </div>
+  
+
+
+          
+
+          <div class="col-lg-4 mx-auto">
+            <div class="auth-form-light text-left py-5 px-4 px-sm-5">
+              <div class="brand-logo">
+                <img src="{% static 'images/logo.png' %}" alt="logo">
+              </div>
+                    {% if msg %}
+                    <span class="text-danger">{{ msg | safe }}</span>
+                    {% else %}
+                    <h4>New here?</h4>
+                    <h6 class="font-weight-light">Signing up is easy. It only takes a few steps</h6>
+                    {% endif %}
+
+                {% if success %}
+
+                <p>
+                    Please <a href="{% url 'L2_UPLOAD:login' %}">authenticate</a> using the new account.
+                </p>
+            
+                {% else %}      
+                <form class="pt-3" role="form" method="POST" id = "createpswForm" name="myForm" onsubmit="return validateForm()"
+                action="{% url 'RLL:end_register' %}">
+                {% csrf_token %}
+                <div class="form-group" id = "Pass">
+                  <input class="form-control form-control-lg" onkeyup="ValidatePassword()" onfocusout="ValidatePassword()" name="password1"
+                    type="password" placeholder="Password" id="password1">
+                  <i class="far fa-eye" id="togglePassword"
+                      style="float: right; margin-right:2%;  margin-top: -2.25rem; cursor: pointer;"></i>
+                  <br>
+                  <b><span id="pasw1" class="formerror"></span></b>
+
+                </div>
+                <div class="form-group" id="cPass">
+                  <input class="form-control form-control-lg" name="password2" type="password" onkeyup="ValidateConfirmPsw()"
+                    onfocusout="ValidateConfirmPsw()" placeholder="Confirm password" id="password2">
+                  <i class="far fa-eye" id="togglePassword1"
+                      style="float: right; margin-right:2%;  margin-top: -2.25rem; cursor: pointer;"></i>
+                  <br>
+                  <b><span id="cpasw1" class="formerror"></span></b>
+
+                </div>
+                <div class="mb-4">
+                </div>
+                <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" id = "subm" type="submit" disabled="disabled">
+                  Create User
+                </button>
+              </form>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- content-wrapper ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+
+
+{% else %}
+
+<div class="container-scroller">
+    <div class="container-fluid page-body-wrapper full-page-wrapper">
+      <div class="content-wrapper d-flex align-items-center auth px-0">
+        <div class="row w-100 mx-0">
+
+
+          <div class="mars">
+
+
+            <div class="left-side">
+  
+              <div class="steps-content">
+                <h3>Step<span class="step-number">2</span></h3>
+  
+                <p class="step-number-content d-none"></p>
+                <p class="step-number-content d-none"></p>
+                <p class="step-number-content d-none"></p>
+              </div>
+              <ul class="progress-bar">
+                <li class="active">SignUp</li>
+                <li class="active">Verify OTP</li>
+                <li>Create Password</li>
+  
+  
+  
+              </ul>
+  
+  
+            </div>
+          </div>
+  
+          <div class="top">
+  
+  
+            <div class="main">
+              <div class="buttons button_space">
+  
+                <button class="next_button">Next Step</button>
+              </div>
+            </div>
+  
+  
+          </div>
+
+
+          <div class="col-lg-4 mx-auto">
+            <div class="auth-form-light text-left py-5 px-4 px-sm-5">
+              <div class="brand-logo">
+                <img src="{% static 'images/logo.png' %}" alt="logo">
+              </div>
+                    {% if msg %}
+                    <span class="text-danger">{{ msg | safe }}</span>
+                    {% else %}
+                    <h4>New here?</h4>
+                    <h6 class="font-weight-light">Signing up is easy. It only takes a few steps</h6>
+                    {% endif %}
+
+                {% if success %}
+
+                <p>
+                    Please <a href="{% url 'L2_UPLOAD:login' %}">authenticate</a> using the new account.
+                </p>
+            
+                {% else %}      
+              <form class="pt-3" role="form" method="POST" id = "otpverifyform" name="myForm1" onsubmit="return validateForm1()" action="{% url 'RLL:verify_otp' %}">
+                {% csrf_token %}
+                
+                <div class="form-group" id = "otp1">
+                  <input class="form-control form-control-lg" onkeyup="ValidateOTP()" onfocusout="ValidateOTP()" name="otp" type="tel"
+                    placeholder="otp" maxlength="6" id="otp">
+
+                    <br>
+                    <b><span id="otp_final" class="formerror1"></span></b>
+                </div>
+                <div class="mb-4">
+
+                </div>
+                <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" type="submit" id = "subm" disabled="disabled">
+                  Verify OTP
+                </button>
+              </form>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- content-wrapper ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+
+{% endif %}
+  <!-- container-scroller -->
+  <!-- plugins:js -->
+  <script src="{% static 'vendors/js/vendor.bundle.base.js' %}"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="{% static 'js/off-canvas.js' %}"></script>
+  <script src="{% static 'js/hoverable-collapse.js' %}"></script>
+  <script src="{% static 'js/template.js' %}"></script>
+  <script src="{% static 'js/settings.js' %}"></script>
+  <script src="{% static 'js/todolist.js' %}"></script>
+  <!-- endinject -->
+
+  <script>
+
+    const togglePassword = document.querySelector('#togglePassword');
+    const psw = document.querySelector('#password1');
+
+    togglePassword.addEventListener('click', function (e) {
+      // toggle the type attribute
+      const type = psw.getAttribute('type') === 'password' ? 'text' : 'password';
+      psw.setAttribute('type', type);
+      // toggle the eye slash icon
+      this.classList.toggle('fa-eye-slash');
+    });
+  </script>
+
+
+  <script>
+    const togglePassword1 = document.querySelector('#togglePassword1');
+    const psw1 = document.querySelector('#password2');
+
+    togglePassword1.addEventListener('click', function (e) {
+      // toggle the type attribute
+      const type = psw1.getAttribute('type') === 'password' ? 'text' : 'password';
+      psw1.setAttribute('type', type);
+      // toggle the eye slash icon
+      this.classList.toggle('fa-eye-slash');
+    });
+
+
+
+
+  </script>
+
+
+  <script>
+
+
+    function updateform() {
+      main_form.forEach(function (mainform_number) {
+        mainform_number.classList.remove('active');
+      })
+      main_form[formnumber].classList.add('active');
+    }
+
+    function progress_forward() {
+
+      num.innerHTML = formnumber + 1;
+      step_list[formnumber].classList.add('active');
+    }
+
+    function progress_backward() {
+      var form_num = formnumber + 1;
+      step_list[form_num].classList.remove('active');
+      num.innerHTML = form_num;
+    }
+
+    var step_num_content = document.querySelectorAll(".step-number-content");
+
+    function contentchange() {
+      step_num_content.forEach(function (content) {
+        content.classList.remove('active');
+        content.classList.add('d-none');
+      });
+      step_num_content[formnumber].classList.add('active');
+    }
+
+
+
+  </script>
+
+
+
+  <script>
+
+    function clearErrors() {
+
+      errors = document.getElementsByClassName('formerror');
+      for (let item of errors) {
+        item.innerHTML = "";
+      }
+
+
+    }
+    function seterror(id, error) {
+      //sets error inside tag of id 
+      element = document.getElementById(id);
+      element.getElementsByClassName('formerror')[0].innerHTML = error;
+
+    }
+
+    function validateForm() {
+      var returnval = true;
+      var passwordregex = /^(.{0,7}|[^0-9]*|[^A-Z]*|[a-zA-Z0-9]*)$/;
+      var password = document.forms['myForm']["password1"].value;
+      if (password.match(passwordregex)) {
+        seterror("Pass", "Make a strong password, 8 characters, including a uppercase letter, number and one special character.");
+        returnval = false;
+
+      }
+
+      var password = document.forms['myForm']["password1"].value;
+      if (password.length < 8) {
+
+
+        seterror("Pass", "*Password should be atleast 8 characters long!");
+        returnval = false;
+      }
+
+      var password = document.forms['myForm']["password1"].value;
+      if (password.length == "") {
+
+
+        seterror("Pass", " This field is required");
+        returnval = false;
+      }
+     
+
+
+
+
+      var Cpassword = document.forms['myForm']["password2"].value;
+      if (Cpassword.length == "") {
+
+
+        seterror("cPass", " This field is required");
+        returnval = false;
+      }
+
+
+
+
+      return returnval;
+    }
+
+
+
+  </script>
+
+
+  <script>
+    otpverifyform.addEventListener('input',() =>{
+      if (otp.value.length>0){
+        subm.removeAttribute('disabled');
+      }
+      else{
+      subm.setAttribute('disabled','disabled');
+      }
+      });
+  </script>
+  
+
+
+  <script>
+
+    function clearErrors1() {
+
+      errors = document.getElementsByClassName('formerror1');
+      for (let item of errors) {
+        item.innerHTML = "";
+      }
+
+
+    }
+    function seterror1(id, error) {
+      //sets error inside tag of id 
+      element = document.getElementById(id);
+      element.getElementsByClassName('formerror1')[0].innerHTML = error;
+
+    }
+
+    function validateForm1() {
+
+      var returnval = true;
+      var otp = document.forms['myForm1']["otp"].value;
+
+      if (otp.length == "") {
+
+
+        seterror1("otp1", " This field is required");
+        returnval = false;
+      }
+
+      return returnval;
+    }
+
+  </script>
+
+
+  <script>
+
+
+    function ValidatePassword() {
+      var passwordregex = /^(.{0,7}|[^0-9]*|[^A-Z]*|[a-zA-Z0-9]*)$/;
+
+      var password = document.forms['myForm']["password1"].value;
+      if (password.match(passwordregex)) {
+        seterror("Pass", "Make a strong password, 8 characters, including a uppercase letter, number and one special character.");
+        returnval = false;
+
+      }
+      else {
+
+        errors = document.getElementById("pasw1");
+
+        errors.innerHTML = "";
+
+      }
+
+      var password = document.forms['myForm']["password1"].value;
+      if (password.length < 8) {
+
+
+        seterror("Pass", "*Password should be atleast 8 characters long!");
+        returnval = false;
+      }
+
+      var password = document.forms['myForm']["password1"].value;
+      if (password.length == "") {
+
+
+        seterror("Pass", " This field is required");
+        returnval = false;
+      }
+
+
+      return returnval;
+    }
+
+
+  </script>
+
+  <script>
+
+
+    function ValidateConfirmPsw() {
+    
+    
+      var Cpassword = document.forms['myForm']["password2"].value;
+      if (Cpassword.length == "") {
+
+
+        seterror("cPass", " This field is required");
+        returnval = false;
+      }
+      else {
+
+        errors = document.getElementById("cpasw1");
+
+        errors.innerHTML = "";
+
+      }
+
+      return returnval;
+    }
+
+
+
+
+  </script>
+
+  <script>
+
+    function ValidateOTP() {
+
+      var otp = document.forms['myForm1']["otp"].value;
+      if (otp.length == "") {
+
+
+        seterror1("otp1", "This field is required");
+        returnval = false;
+      }
+      else {
+
+        errors = document.getElementById("otp_final");
+
+        errors.innerHTML = "";
+
+      }
+
+      return returnval;
+    }
+
+
+  </script>
+
+
+  
+  <script>
+  
+  
+    
+    createpswForm.addEventListener('input',() =>{
+      if (password1.value.length>0 && password2.value == password1.value){
+      
+        subm.removeAttribute('disabled');
+      
+      }
+      else{
+  
+      subm.setAttribute('disabled','disabled');
+      
+      }
+      
+      
+      });
+  
+  
+  </script>
+</body>
+
+
+
+
+<!-- Mirrored from technext.github.io/skydash/pages/samples/register.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 16 May 2022 05:23:07 GMT -->
+</html>

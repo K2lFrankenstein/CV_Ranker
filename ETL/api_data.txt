@@ -1,0 +1,123 @@
+{
+    "fullName": "Mitesh Gulecha",
+    "contactInfo": {
+      "email": "mgulecha@iu.edu",
+      "mobile": "+1 812-778-5200",
+      "github": "https://github.com/mickyG03",
+      "linkedin": "https://www.linkedin.com/in/mitesh-gulecha-5178381a9"
+    },
+    "education": {
+      "1": {
+        "institution": "Indiana University Bloomington",
+        "location": "Bloomington, IN",
+        "degree": "Master of Science (M.S.) in Computer Science",
+        "cgpa": "3.55/4.00",
+        "date": "Aug. 2022 – May 2024"
+      },
+      "2": {
+        "institution": "Indus Institute of Technology and Engineering",
+        "location": "Ahmedabad, India",
+        "degree": "Bachelor’s Degree in Technology (B.Tech.), Information Technology",
+        "cgpa": "9.74/10.0",
+        "date": "Jul. 2018 – May 2022"
+      }
+    },
+    "skills": [
+      "C",
+      "C++",
+      "Python",
+      "JAVA",
+      "C#",
+      "PHP",
+      "Kotlin",
+      "Rust",
+      "Shell Script",
+      "HTML",
+      "CSS",
+      "Typescript",
+      "JavaScript",
+      "React JS",
+      "Node JS",
+      "Nest JS",
+      "JQuery",
+      "AJAX",
+      "ASP.Net",
+      "Three JS",
+      "Babylon JS",
+      "MongoDB",
+      "PostgreSQL",
+      "GraphQL",
+      "MySQL",
+      "Django",
+      ".NET",
+      "Springboot",
+      "CMake",
+      "Docker",
+      "Flask",
+      "ElasticSearch",
+      "Amazon Web Services (AWS)",
+      "Google Cloud Platform",
+      "Agile",
+      "Jira",
+      "Scrum",
+      "CI/CD"
+    ],
+    "work experience": {
+      "1": {
+        "title": "Research Assistant",
+        "employer": "Indiana University Bloomington-US",
+        "date": "Feb. 2023 - Present",
+        "description": "• Constructed physics-based software framework in Python-Flask, to create environments s...",
+        "achievements": "• Achieved 30M daily training steps and 85% precision increase. Stimulated agents to mimic mouse accumulation-tasks\n• Research paper accepted by NeurIPS-2023 Workshop: https://openreview.net/forum?id=5W9so5v0OU"
+      },
+      "2": {
+        "title": "Software Engineer Intern",
+        "employer": "Prepseed",
+        "date": "Jun. 2023 - Jul. 2023",
+        "description": "• Spearheaded scalable Microservices development using Nest.js, bolstered performance/s...",
+        "achievements": "• Orchestrated Monolith-to-Microservices architecture transition with advanced chat services, to gain 30% higher agility\n• Integrated TCP sockets, Redis, powered by AWS’s S3 Bucket, resulting in a streamlined communication tailored for targeted students and educational organizations"
+      },
+      "3": {
+        "title": "Software Developer - Web Based",
+        "employer": "Wolves Business Solutions (Now Visuareal)",
+        "date": "Jan. 2022 - May 2022",
+        "description": "• Translated client’s vision into tangible-outcome by implementing JavaScript, SQL, PHP...",
+        "achievements": "• Reduced administrative overhead by 1/4\n• Elevated experience and cultivated a pliable SaaS platform coherent with clients' web architecture, databases, achieved reduction in cycle time and amplification in flexibility by 2x times\n• Project:-https://visuareal.in/home/visualizer/ | https://www.kajariaeternity.com/tile-visualiser/"
+      }
+    },
+    "projects": {
+      "1": {
+        "title": "WealthPix- Generative AI Financial Advisor Web Chat-Bot",
+        "technologies": "Asp.Net, C#, Bootstrap. Html, CSS, JS, Rest, Google Cloud Platform, Vertex API",
+        "description": "Orchestrated the development of an AI-driven Fintech solution that offers personalized financial insights. Merged Dotnet-MVC architecture with GCP, implemented few-shot learning model , to achieve impressive 70% increase in accuracy",
+        "github": "https://github.com/MickyG03/Wealthpix"
+      },
+      "2": {
+        "title": "Whatsapp-Web Clone",
+        "technologies": "MongoDB, Express, React JS, Node JS, Redis, WebSocket, CSS, HTML, Ajax, Jquery",
+        "description": "Engineered WhatsApp-clone web-app through full-stack development, incorporating real-time messaging, video call capabilities, and advanced functionalities. Leveraged MERN stack, Socket IO, WebRTC, and Redux Toolkit to drive 40% reduction in page load time",
+        "frontend": "https://github.com/MickyG03/Whatsapp-Clone-Frontend",
+        "backend": "https://github.com/MickyG03/Whatsapp-Clone-Backend"
+      },
+      "3": {
+        "title": "Hyper News Portal",
+        "technologies": "Django, Python, SQL, Bootstrap, HTML, CSS, JS, PostgreSQL",
+        "description": "Led the development of full-stack News-Portal using Django, employing advanced JSON/PostgreSQL data-storage; leveraged Django's URL routing and HTML-template capabilities. Amplified and intuitively flowed UX with CSS styling for 30% increase in seamless-browsing-traffic",
+        "github": "https://github.com/MickyG03/Hyper-News-Portal"
+      }
+    },
+    "others": {
+      "1": {
+        "organization": "Mozilla",
+        "technologies": "Javascript, Rust, Python, Shell",
+        "description": "Collaborated with development team to fix bugs within Mozilla-WebDriver’s codebase by implementing a comprehensive solution that involved refactoring the module logic and features of accessibility like pages, assets, and migration of file systems",
+        "github": "https://github.com/mozilla/geckodriver/releases/tag/v0.34.0"
+      },
+      "2": {
+        "organization": "DIPY",
+        "technologies": "Python",
+        "description": "Refined Python’s library for diffusion MRI Analysis-DIPY, by enhancing the functionality and appending predefined behavior methods for generating a matrix used for probability mass functions (PMFs), offering an option for backward compatibility",
+        "website": "https://workshop.dipy.org/documentation/1.7.0/release_notes/release1.7/"
+      }
+    }
+  }

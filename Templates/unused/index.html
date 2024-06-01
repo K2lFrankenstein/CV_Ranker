@@ -1,0 +1,69 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign-In with google Credentials</title>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ini/2.0.0/ini.min.js"></script>
+
+</head>
+<body>
+    <button onclick="googleSignIn()">Sign in with Google</button>
+    <button onclick="googleSignOut()">Sign out</button>
+
+</body>
+</html>
+
+<script>
+    // Initialize Firebase using the config passed from Django
+    var firebaseConfig = {{ obj|safe }};
+    firebase.initializeApp(firebaseConfig);
+
+    function googleSignIn() {
+        var provider = new firebase.auth.GoogleAuthProvider();
+        firebase.auth().signInWithPopup(provider).then(function(result) {
+            result.user.getIdToken().then(function(idToken) {
+                // Send token to your backend via a POST request
+                fetch('/login/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ id_token: idToken }),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Success:', data);
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+            });
+        }).catch(function(error) {
+            console.log(error);
+        });
+    }
+
+    function googleSignOut() {
+        firebase.auth().signOut().then(function() {
+            // Notify backend of logout
+            fetch('/logout/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }).catch(function(error) {
+            console.log(error);
+        });
+    }
+</script>

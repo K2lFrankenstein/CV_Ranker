@@ -1,0 +1,443 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>CV Decoder</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="{% static 'vendors/feather/feather.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/ti-icons/css/themify-icons.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/css/vendor.bundle.base.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/mdi/css/materialdesignicons.min.css' %}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <!-- endinject -->
+  <!-- Plugin css for this page -->
+  <link rel="stylesheet" href="{% static 'vendors/datatables.net-bs4/dataTables.bootstrap4.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'js/select.dataTables.min.css' %}">
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="{% static 'images/small-logo.png' %}" />
+ 
+</head>
+
+<body>
+  <div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    {% include 'header.html' %}
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_settings-panel.html -->
+      
+      {% comment %} <div class="theme-setting-wrapper">
+        <div id="settings-trigger"><i class="ti-settings"></i></div>
+        <div id="theme-settings" class="settings-panel">
+          <i class="settings-close ti-close"></i>
+          <p class="settings-heading">SIDEBAR SKINS</p>
+          <div class="sidebar-bg-options selected" id="sidebar-light-theme"><div class="img-ss rounded-circle bg-light border mr-3"></div>Light</div>
+          <div class="sidebar-bg-options" id="sidebar-dark-theme"><div class="img-ss rounded-circle bg-dark border mr-3"></div>Dark</div>
+          <p class="settings-heading mt-2">HEADER SKINS</p>
+          <div class="color-tiles mx-0 px-4">
+            <div class="tiles success"></div>
+            <div class="tiles warning"></div>
+            <div class="tiles danger"></div>
+            <div class="tiles info"></div>
+            <div class="tiles dark"></div>
+            <div class="tiles default"></div>
+          </div>
+        </div>
+      </div> {% endcomment %}
+
+
+
+      {% comment %} <div id="right-sidebar" class="settings-panel">
+        <i class="settings-close ti-close"></i>
+        <ul class="nav nav-tabs border-top" id="setting-panel" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="todo-tab" data-toggle="tab" href="#todo-section" role="tab" aria-controls="todo-section" aria-expanded="true">TO DO LIST</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="chats-tab" data-toggle="tab" href="#chats-section" role="tab" aria-controls="chats-section">CHATS</a>
+          </li>
+        </ul>
+        <div class="tab-content" id="setting-content">
+          <div class="tab-pane fade show active scroll-wrapper" id="todo-section" role="tabpanel" aria-labelledby="todo-section">
+            <div class="add-items d-flex px-3 mb-0">
+              <form class="form w-100">
+                <div class="form-group d-flex">
+                  <input type="text" class="form-control todo-list-input" placeholder="Add To-do">
+                  <button type="submit" class="add btn btn-primary todo-list-add-btn" id="add-task">Add</button>
+                </div>
+              </form>
+            </div>
+            <div class="list-wrapper px-3">
+              <ul class="d-flex flex-column-reverse todo-list">
+                <li>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox">
+                      Team review meeting at 3.00 PM
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+                <li>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox">
+                      Prepare for presentation
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+                <li>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox">
+                      Resolve all the low priority tickets due today
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+                <li class="completed">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox" checked>
+                      Schedule meeting for next week
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+                <li class="completed">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="checkbox" type="checkbox" checked>
+                      Project review
+                    </label>
+                  </div>
+                  <i class="remove ti-close"></i>
+                </li>
+              </ul>
+            </div>
+            <h4 class="px-3 text-muted mt-5 font-weight-light mb-0">Events</h4>
+            <div class="events pt-4 px-3">
+              <div class="wrapper d-flex mb-2">
+                <i class="ti-control-record text-primary mr-2"></i>
+                <span>Feb 11 2018</span>
+              </div>
+              <p class="mb-0 font-weight-thin text-gray">Creating component page build a js</p>
+              <p class="text-gray mb-0">The total number of sessions</p>
+            </div>
+            <div class="events pt-4 px-3">
+              <div class="wrapper d-flex mb-2">
+                <i class="ti-control-record text-primary mr-2"></i>
+                <span>Feb 7 2018</span>
+              </div>
+              <p class="mb-0 font-weight-thin text-gray">Meeting with Alisa</p>
+              <p class="text-gray mb-0 ">Call Sarah Graves</p>
+            </div>
+          </div>
+          <!-- To do section tab ends -->
+          <div class="tab-pane fade" id="chats-section" role="tabpanel" aria-labelledby="chats-section">
+            <div class="d-flex align-items-center justify-content-between border-bottom">
+              <p class="settings-heading border-top-0 mb-3 pl-3 pt-0 border-bottom-0 pb-0">Friends</p>
+              <small class="settings-heading border-top-0 mb-3 pt-0 border-bottom-0 pb-0 pr-3 font-weight-normal">See All</small>
+            </div>
+            <ul class="chat-list">
+              <li class="list active">
+                <div class="profile"><img src="{% static 'images/faces/face1.jpg' %}" alt="image"><span class="online"></span></div>
+                <div class="info">
+                  <p>Thomas Douglas</p>
+                  <p>Available</p>
+                </div>
+                <small class="text-muted my-auto">19 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="{% static 'images/faces/face2.jpg' %}" alt="image"><span class="offline"></span></div>
+                <div class="info">
+                  <div class="wrapper d-flex">
+                    <p>Catherine</p>
+                  </div>
+                  <p>Away</p>
+                </div>
+                <div class="badge badge-success badge-pill my-auto mx-2">4</div>
+                <small class="text-muted my-auto">23 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="{% static 'images/faces/face3.jpg' %}" alt="image"><span class="online"></span></div>
+                <div class="info">
+                  <p>Daniel Russell</p>
+                  <p>Available</p>
+                </div>
+                <small class="text-muted my-auto">14 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="{% static 'images/faces/face4.jpg' %}" alt="image"><span class="offline"></span></div>
+                <div class="info">
+                  <p>James Richardson</p>
+                  <p>Away</p>
+                </div>
+                <small class="text-muted my-auto">2 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="{% static 'images/faces/face5.jpg' %}" alt="image"><span class="online"></span></div>
+                <div class="info">
+                  <p>Madeline Kennedy</p>
+                  <p>Available</p>
+                </div>
+                <small class="text-muted my-auto">5 min</small>
+              </li>
+              <li class="list">
+                <div class="profile"><img src="{% static 'images/faces/face6.jpg' %}" alt="image"><span class="online"></span></div>
+                <div class="info">
+                  <p>Sarah Graves</p>
+                  <p>Available</p>
+                </div>
+                <small class="text-muted my-auto">47 min</small>
+              </li>
+            </ul>
+          </div>
+          <!-- chat tab ends -->
+        </div>
+      </div> {% endcomment %}
+
+
+
+      <!-- partial -->
+      <!-- partial:partials/_sidebar.html -->
+      {%include 'menu.html' %}
+      <!-- partial -->
+      <div class="main-panel"   >
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-md-12 ">
+              <div class="row">
+                <div class="col-12 col-xl-12 mb-4 mb-xl-0">
+                  
+                  <h3 class="font-weight-bold">Searching...</h3>
+                  <hr>
+                  {% comment %} <h6 class="font-weight-normal mb-0">All systems are running smoothly! You have <span class="text-primary">3 unread alerts!</span></h6> {% endcomment %}
+                </div>
+            </div>
+            <form method="POST" action="{% url 'L2_SEARCH:op' %}">
+
+              {% csrf_token %}
+
+              <div class="row">
+                
+                  <div class="col-md-4" >
+                    <div class="col-md-6 col-xl-6 " style="padding:10px;">
+                      <div class="form-group">
+                        
+                        <select class="form-control" name="db_name" id="exampleSelectGender" >
+                          <option value="" disabled selected> Select Database </option>
+                          {% for DBS in DROPDORN_DATABASE %}
+                            <option value={{ DBS }}> {{ DBS }} </option>
+                          {% endfor %}
+                          <option value="SMALL">SMALL</option>
+                          <option value="WORD_FILES">WORD_FILES</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row col-md-12 col-xl-6" style="padding:10px;margin-left:20px;">
+                    {% comment %} <div class="col-md-3 col-xl-4"> {% endcomment %}
+                      <div class="col-md-4 form-check">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input" name="search_type" id="optionsRadios1" value="Keyword Search" checked>
+                          Keyword Search
+                        </label>
+                      </div>
+                      <div class="col-md-4 form-check">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input" name="search_type" id="optionsRadios1" value="Phrase Search">
+                          Phrase Search
+                        </label>
+                      </div>
+                      <div class="col-md-4 form-check">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input" name="search_type" id="optionsRadios1" value="Whild Search" >
+                          Whild Search
+                        </label>
+                      </div>
+                    {% comment %} </div> {% endcomment %}
+
+                    
+                  </div>
+
+                
+
+              </div>
+
+
+
+              <div class="col-md-12 col-xl-12" style="padding:10px;">
+                <div class="">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Enter keyword which you want to search..."  name="keyword">
+                    <div class="input-group-append">
+                      <button class="btn btn-sm btn-primary" type="submit">Search</button>
+                    </div>
+                  </div>
+                </div>
+              
+              </div>
+
+            </form>
+            <br>
+            <br>
+            <br>
+            {% if Data_Found %}
+
+            
+            <div class="tab">
+              <button class="tablinks" onclick="openCity(event, 'London')" >{{ query }}</button>
+            </div>
+
+            <div id="London" class="tabcontent active">
+              
+              <p>
+                <div  style="width:100%; ">
+                  {% comment %} <span style="float:right;">About {{Total}} results ( {{Result_Time}} seconds)</span> {% endcomment %}
+             
+                  <div class="row mt-2 col-md-12  col-xl-12">
+                    
+                    {% comment %} <div class="col-md-4" ><h5 class="font-weight-bold">{{ key_type }}</h5></div> {% endcomment %}
+                    <div class="col-md-6" ><h5 class="font-weight-bold">{{Total}} results found in  {{Result_Time}} seconds</h5></div>
+                    <div class="col-md-6" >Word Occurrence : {{ Occurrence }}</div>
+                    {% comment %} <div class="col-md-4" >Result : {{Total}}</div> {% endcomment %}
+
+                  </div>
+                  &nbsp;
+
+                  <div class="table-wrapper-scroll-y my-custom-scrollbar" >
+                    
+                    {% for dictionary in Data %}
+
+                      <div class="card mt-2" style="margin:10px;">
+                        <div class="card-header">
+                          <b>
+                            {{ dictionary.coll_name }}
+                          </b>
+                        </div>
+                        <div class="card-body">
+                            
+                          <p class="card-text">
+                            {% comment %} <span style="background-color:#bec8ee;">{{ dictionary.data }}</span> {% endcomment %}
+                   
+                            {% for highlight_word in dictionary.data%}
+
+                              {% if highlight_word in Varients %}
+
+                              <span style="background-color:#bec8ee;">{{highlight_word}}</span>
+
+                              {% else %}
+  
+                                {{highlight_word}}
+
+                              {% endif %}
+
+                            {% endfor %}  
+
+                            {% comment %} {{ dictionary.data }}  {% endcomment %}
+        
+
+                          </p>
+                        </div>
+                      </div>
+
+                    {% endfor %}
+  
+
+                  </div>
+                  <br>
+                  {% comment %} {%if key_type == "Keyword Search" %}
+                    <button type="button" class="btn btn-primary btn-sm" style="float:right">Deep Analysis</button>
+                  {% elif key_type == "Phrase Search"%}
+                    <button type="button" class="btn btn-primary btn-sm" style="float:right">Deep Analysis</button>
+                  {% endif %} {% endcomment %}
+  
+                </div>
+           
+              </p>
+            </div>
+
+            <div id="Paris" class="tabcontent">
+              <h3>Paris</h3>
+              <p>Paris is the capital of France.</p> 
+            </div>
+
+            <div id="Tokyo" class="tabcontent">
+              <h3>Tokyo</h3>
+              <p>Tokyo is the capital of Japan.</p>
+            </div>
+
+            {% endif %}
+
+            </div>
+          </div>
+        </div>
+        
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        {%include 'footer.html' %}
+
+        <!-- partial -->
+      </div>
+      
+      <!-- main-panel ends -->
+    </div>   
+    
+    <!-- page-body-wrapper ends -->
+  </div>
+  
+  <!-- container-scroller -->
+
+  <!-- plugins:js -->
+  <script src="{% static 'vendors/js/vendor.bundle.base.js' %}"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+  <script src="{% static 'vendors/chart.js/Chart.min.js' %}"></script>
+  <script src="{% static 'vendors/datatables.net/jquery.dataTables.js' %}"></script>
+  <script src="{% static 'vendors/datatables.net-bs4/dataTables.bootstrap4.js' %}"></script>
+  <script src="{% static 'js/dataTables.select.min.js' %}"></script>
+
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="{% static 'js/off-canvas.js' %}"></script>
+  <script src="{% static 'js/hoverable-collapse.js' %}"></script>
+  <script src="{% static 'js/template.js' %}"></script>
+  <script src="{% static 'js/settings.js' %}"></script>
+  <script src="{% static 'js/todolist.js' %}"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page-->
+  <script src="{% static 'js/dashboard.js' %}"></script>
+  <script src="{% static 'js/Chart.roundedBarCharts.js' %}"></script>
+  <!-- End custom js for this page-->
+</body>
+
+<script>
+  function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+  </script>
+
+</html>
+
+

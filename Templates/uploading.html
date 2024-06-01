@@ -1,0 +1,294 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>CV Decoder</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="{% static 'vendors/feather/feather.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/ti-icons/css/themify-icons.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/css/vendor.bundle.base.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/mdi/css/materialdesignicons.min.css' %}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <!-- endinject -->
+  <!-- Plugin css for this page -->
+  <link rel="stylesheet" href="{% static 'vendors/datatables.net-bs4/dataTables.bootstrap4.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'js/select.dataTables.min.css' %}">
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="{% static 'images/small-logo.png' %}" />
+</head>
+
+<body>
+  <div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    {% include 'header.html' %}
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_settings-panel.html -->
+
+
+      <!-- partial -->
+      <!-- partial:partials/_sidebar.html -->
+      {%include 'menu.html' %}
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="col-md-12   ">
+              <div class="row">
+
+                {% if upd == 0 %}
+
+                <div class="col-12 col-xl-12 mb-4 mb-xl-0">
+
+                  <h3 class="font-weight-bold">File Uploading</h3>
+                  <span> {{ msg|safe }} </span>
+                  <hr>
+                  <br>
+
+                  &nbsp;
+                  <h4> <b style="margin-left:3%;">Upload CVs: </b> </h4>
+                  <hr>
+
+                  <form method="POST" action="{% url 'ETL:upload_page' %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.file_field }}
+                    {{ form.file_field.errors }}
+                    <br><br><hr>
+                
+                    <h4><b style="margin-left:3%;"> Upload Job Description: </b></h4>
+                    <hr>
+                
+                    <br>
+                    <div class=" align-items-center row ml-2 col-md-12  ">
+                      <div class="badge badge-success"><h5><b> Job Tittle : </b></h5></div>
+                      <div class="ml-3"> {{ form.job_title }}  {{ form.job_title.errors }}</div>
+                    </div>
+                    <br>
+                    <br>
+
+                    <div class="align-items-center row ml-2 col-md-12 ">
+                    <div class="col-md-5">   
+                      
+                      <h5><b> Job Description: </b></h5><br>
+                      {{ form.job_description }}{{ form.job_description.errors }}
+                       </div>
+
+                    <div class="col-md-2">
+                    
+                    <b><label class="badge badge-warning">OR</label></b>
+                    
+                  </div>
+                    <div class="col-md-5"> 
+                    {{ form.job_description_file }} {{ form.job_description_file.errors }}
+                  </div>
+                  
+                </div>
+                <br><br><br>
+                    <button type="submit" class="btn btn-primary">Upload Files</button>
+                </form>
+                  
+                </div>
+               
+              &nbsp;&nbsp;
+                
+              </div>
+              
+              <div class="row">
+              </div>
+              <br>
+            </div>
+            {% elif upd == 1 %}
+            <div class="col-lg-12 stretch-card">
+
+
+
+              <div class="card  align-items-center">
+
+                <div class="card-body  col-lg-11 mt-3 ">
+                  <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                    <h3 class="font-weight-bold">Uploaded Data</h3>
+                    <br>
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>File Name</th>
+                          <th>Extention</th>
+                          <th>CV</th>
+                          <th>Job Description</th>
+                        </tr>
+                      </thead>
+                      <tbody id="frame1">
+                        {% for data in ListOfFILES %}
+                        <tr>
+                          <td class="py-1">{{ data.filename }}</td>
+
+                          <td>{{ data.extension }}</td>
+                          
+                          <td>
+                            <div>
+                              <div>{{ data.is_cv }}</div>
+                            </div>
+                          </td>
+                          
+                          <td>
+                            <div class="">
+                              <div id="test">{{ data.is_jd }} </div>
+                            </div>
+                          </td>
+                          
+                          
+                      
+                        </tr>
+                        {%endfor%}
+
+
+                      </tbody>
+
+                      
+                    </table>
+                    <div class="mt-5">
+                    <center> <a href="{% url 'ETL:processed' %}"><button type="submit" class="btn btn-primary  "> Process Data Files</button></a> </center>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {% endif %}
+          </div>
+
+          {%include 'footer.html' %}
+        </div>
+
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+       
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  
+  <!-- container-scroller -->
+
+  <!-- plugins:js -->
+  <script src="{% static 'vendors/js/vendor.bundle.base.js' %}"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+  <script src="{% static 'vendors/chart.js/Chart.min.js' %}"></script>
+  <script src="{% static 'vendors/datatables.net/jquery.dataTables.js' %}"></script>
+  <script src="{% static 'vendors/datatables.net-bs4/dataTables.bootstrap4.js' %}"></script>
+  <script src="{% static 'js/dataTables.select.min.js' %}"></script>
+
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="{% static 'js/off-canvas.js' %}"></script>
+  <script src="{% static 'js/hoverable-collapse.js' %}"></script>
+  <script src="{% static 'js/template.js' %}"></script>
+  <script src="{% static 'js/settings.js' %}"></script>
+  <script src="{% static 'js/todolist.js' %}"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page-->
+  <script src="{% static 'js/dashboard.js' %}"></script>
+  <script src="{% static 'js/Chart.roundedBarCharts.js' %}"></script>
+  <!-- End custom js for this page-->
+</body>
+
+<script>
+
+  function pgrs(){
+    
+
+    
+    $.ajax({
+      method: "get",
+      url: " ",
+     
+      success: function(data) {
+        //console.log(data, "aii to gayo data")
+        // looping condition 
+  
+        //console.log("try thiss  -------", data)
+        let l = data.length
+        let s_stat = data[l-1]
+        console.log("last element",s_stat)
+        if (s_stat == 'done'){
+
+          data.length = l-1
+          console.log("inside the if condition",data)
+          data?.map((item,index)=>{
+
+
+
+            let x = item.id !== null ? item.id.toString()+"0" : console.log(item.id)
+            let y = item.id !== null ? item.id.toString()+"test" : console.log(item.id)
+   
+             console.log("herer",x,y)
+             document.getElementById(x).innerHTML = item.stat
+             document.getElementById(y).innerHTML = item.percentage
+            // console.log(item)  
+           });
+          console.log("last call done")
+        }
+
+        else{
+
+          data?.map((item,index)=>{
+
+
+
+            let x = item.id !== null ? item.id.toString()+"0" : console.log(item.id)
+            let y = item.id !== null ? item.id.toString()+"test" : console.log(item.id)
+   
+             console.log("herer",x,y)
+             document.getElementById(x).innerHTML = item.stat
+             document.getElementById(y).innerHTML = item.percentage
+             //console.log(item)  
+           });
+           setTimeout(pgrs, 10000);
+
+        }
+        
+      },
+      error: function(error) {
+        console.log(error, "eriiiiiii>>>>>>>>>>>>>")
+      }
+
+  }) 
+
+   
+}
+
+
+  function GOGOGO(){
+
+    $.ajax({
+      method: "get",
+      url: "",
+      success: function(data) {
+        console.log("Multi threading Called");
+        },
+      error: function(error) {
+    console.log(error, "eriiiiiii>>>>>>>>>>>>>GOGOGOGOGOGOGOGO");
+  }
+
+}) 
+
+//setTimeout(()=>{
+  //pgrs();  
+//},5000)
+
+
+}
+</script>
+</html>
+
