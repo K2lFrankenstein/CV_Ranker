@@ -17,7 +17,18 @@ json_file_path = os.path.join(BASE_DIR,"ETL",'smt_files.json')
 # main dashboard 
 def dashboard(request):
     if request.user.is_authenticated:
-            return render(request, "home.html")
+            
+            email = str(request.user)
+            f_key = User.objects.get(username = email) 
+            cv_data = StructuredFormate.objects.filter(UID= f_key)
+            jd_data = JobDescription.objects.filter(UID= f_key)
+
+            data = {
+                "cv": len(cv_data),
+                "jd": len(jd_data)
+            }   
+
+            return render(request, "home.html",{"data":data})
     else: 
 
         return redirect("/")
