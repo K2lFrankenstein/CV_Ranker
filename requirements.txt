@@ -101,7 +101,7 @@ Pyrebase==3.0.27
 Pyrebase4==4.8.0
 python-dateutil==2.9.0.post0
 python-json-logger==2.0.7
-python-jwt==2.0.1
+python-jwt==3.3.4
 pywin32==306
 pywinpty==2.0.13
 PyYAML==6.0.1
